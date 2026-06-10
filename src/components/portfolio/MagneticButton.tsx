@@ -11,7 +11,7 @@ type Props = {
   type?: "button" | "submit";
 };
 
-export function MagneticButton({ children, className, variant = "primary", href, onClick, ...rest }: Props) {
+export function MagneticButton({ children, className, variant = "primary", href, onClick, type = "button" }: Props) {
   const ref = useRef<HTMLElement>(null);
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -65,8 +65,8 @@ export function MagneticButton({ children, className, variant = "primary", href,
       onMouseMove={move}
       onMouseLeave={reset}
       onClick={onClick}
+      type={type}
       className="inline-block"
-      {...rest}
     >
       {inner}
     </button>
