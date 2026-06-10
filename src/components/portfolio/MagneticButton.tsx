@@ -1,5 +1,5 @@
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { useRef, type ReactNode, type MouseEvent, type ComponentProps } from "react";
+import { useRef, type ReactNode, type MouseEvent } from "react";
 import { cn } from "@/lib/utils";
 
 type Props = {
@@ -8,7 +8,8 @@ type Props = {
   variant?: "primary" | "ghost" | "outline";
   href?: string;
   onClick?: () => void;
-} & Omit<ComponentProps<typeof motion.button>, "onClick" | "ref">;
+  type?: "button" | "submit";
+};
 
 export function MagneticButton({ children, className, variant = "primary", href, onClick, ...rest }: Props) {
   const ref = useRef<HTMLElement>(null);
